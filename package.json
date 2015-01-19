@@ -1,14 +1,22 @@
 {
   "name": "jsonresume-theme-striking",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Striking theme for JSON Resume",
   "author": "Santosh Shaastry",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/poleveD/jsonresume-theme-striking"
   },
   "license": "MIT",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4"
+  },
+  "keywords" :[
+    "JSON Resume",
+	"Striking theme",
+	"jsonresume-theme"
+  ],
+  "bugs": {
+    "url": "https://github.com/poleveD/jsonresume-theme-striking/issues"
   }
 }
