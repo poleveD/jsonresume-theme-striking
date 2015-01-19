@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	
+	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Oxygen:700,400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<style>
+	{{{css}}}
+	</style>
+	
+	</head>
+	<body>
+	<div id="resume" class="container-fluid">
+
+	{{#resume.basics}}
+	<section id="header">
+	    <div class="row">
+		  <img src="http://www.gravatar.com/avatar/0572f2d73025fd3009a79e7abee62b45?s=100&r=pg&d=mm"></img>
+		</div>
+		<div class="row">
+		  <h1 class="name col-sm-12">{{name}}</h1>
+		  {{#if label}}
+		  <h4 class="designation col-sm-12">{{label}}</h4>
+		  {{/if}}
+		</div>
+		<div class="row media">
+		  {{#if profiles.length}}
+		  <div id="profiles">
+		    {{#each profiles}}
+		    <div class="media-item">
+			  {{#if network}}
+			    <a href="{{url}}">{{network}}</a>
+              {{else}}
+			    {{#if username}}
+				  <a href="{{url}}">{{username}}</a>
+				{{/if}}
+			  {{/if}}
+			  {{#if @last}}
+			  {{else}}
+			    ||
+			  {{/if}}
+		    </div>
+		    {{/each}}
+		  {{/if}}
+		</div>
+		<div class="row contact">
+		  <ul>
+		    {{#if website}}
+		      <li class="col-sm-4">
+			    <span class="fa fa-globe fa-2x"></span> <a href="{{website}}">{{website}}</a>
+			  </li>
+		    {{/if}}
+			{{#if email}}
+		      <li class="col-sm-4">
+			    <span class="fa fa-envelope fa-2x"></span>  {{email}}
+			  </li>
+		    {{/if}}
+		    {{#if phone}}
+		      <li class="col-sm-4">
+			    <span class="fa fa-phone fa-2x"></span>  {{phone}}
+			  </li>
+		    {{/if}}
+		  </ul>
+		</div>
+		<div class="row location">
+			{{#location}}
+			<div class="col-sm-12">
+			  <span class="fa fa-map-marker fa-2x"></span>
+			  <span>
+			    {{#if address}}
+				  {{address}}
+				{{/if}}
+				{{#if postalCode}}
+				  {{postalCode}}
+				{{/if}}
+				{{#if city}}
+				  {{city}}
+				{{/if}}
+				{{#if countryCode}}
+				  {{countryCode}}
+				{{/if}}
+				{{#if region}}
+			      {{region}}
+				{{/if}}
+			  </span>
+			</div>
+			{{/location}}
+		</div>
+	</section>
+
+	<section id="basics">
+		{{#if summary}}
+		<div class="row summary">
+		  <span class="fa fa-quote-left fa-2x"></span>
+		  <span>{{summary}}</span>
+		  <span class="fa fa-quote-right fa-2x"></span> 
+		</div>
+		{{/if}}
+	</section>
+	{{/resume.basics}}
+
+	{{#if resume.work.length}}
+	<section id="work" class="row">
+		<div class="col-sm-3 section-info">
+		  W o r k
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.work}}
+			<div class="col-sm-12 work-item">
+			  <p class="col-sm-7">
+		        <span class="work-position">{{position}}</span>,
+				{{#if website}}
+				<a href="{{website}}">{{company}}</a>
+				{{else}}
+				{{company}}
+				{{/if}}
+			  </p>
+			  {{#if duration}}
+			  <p class="col-sm-5 duration">
+			    <span class="fa fa-clock-o"></span>
+		        {{startDate}} -- {{endDate}}
+			  </p
+			  {{/if}}
+			  {{#if summary}}
+			  <div class="col-sm-12 work-summary">
+			    <p>
+			      {{summary}}
+			    </p>
+			  </div>
+			  {{/if}}
+			  {{#if highlights.length}}
+			  <div class="col-sm-12 work-highlights">
+				<ul>
+				{{#each highlights}}
+				  <li>{{.}}</li>
+				{{/each}}
+				</ul>
+			  </div>
+			  {{/if}}
+			</div>
+		  {{/each}}
+		</div>
+	</section>
+	{{/if}}
+
+	{{#if resume.volunteer.length}}
+	<section id="volunteer" class="row">
+		<div class="col-sm-3 section-info small-header">
+		  V o l u n t e e r
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.volunteer}}
+			<div class="col-sm-12 volunteer-item">
+			  <p class="col-sm-7">
+		        <span class="volunteer-position">{{position}}</span>,
+				{{#if website}}
+				  <a href="{{website}}">{{organization}}</a>
+				{{else}}
+				  {{organization}}
+				{{/if}}
+			  </p>
+			  {{#if duration}}
+			  <p class="col-sm-5 duration">
+			    <span class="fa fa-clock-o"></span>
+		        {{startDate}} -- {{endDate}}
+			  </p>
+			  {{/if}}
+			  {{#if summary}}
+			  <div class="col-sm-12 volunteer-summary">
+			    <p>
+			      {{summary}}
+			    </p>
+			  </div>
+			  {{/if}}
+			  {{#if highlights.length}}
+			  <div class="col-sm-12 volunteer-highlights">
+				<ul>
+				{{#each highlights}}
+				  <li>{{.}}</li>
+				{{/each}}
+				</ul>
+			  </div>
+			  {{/if}}
+			</div>
+		  {{/each}}
+		</div>
+		<div class="col-sm-3 section-info big-header">
+		  V o l u n t e e r
+		</div>
+	</section>
+	{{/if}}
+	
+	{{#if resume.education.length}}
+	<section id="education" class="row">
+		<div class="col-sm-3 section-info">
+		  E d u c a t i o n
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.education}}
+			<div class="col-sm-12 education-item">
+			  <p class="col-sm-7">
+		        <span class="education-institution fa fa-university">{{institution}}</span>
+			  </p>
+			  <p class="col-sm-5 duration">
+			    <span class="fa fa-clock-o"></span>
+		        {{startDate}} -- {{endDate}}
+			  </p>
+			  <div class="col-sm-12 education-subject">
+			    <p>
+			      {{#if area}}
+				  <span class="bold">Area :</span> {{area}}
+				  {{/if}}
+				  {{#if studyType}}
+				  | <span class="bold">Level :</span> {{studyType}}
+				  {{/if}}
+				  {{#if gpa}}
+				  | <span class="bold">GPA :</span> {{gpa}}
+				  {{/if}}
+			    </p>
+			  </div>
+			  {{#if courses.length}}
+			  <div class="col-sm-12 education-courses">
+				<ul>
+				{{#each courses}}
+				  <li>{{.}}</li>
+				{{/each}}
+				</ul>
+			  </div>
+			  {{/if}}
+			</div>
+		  {{/each}}
+		</div>
+	</section>
+	{{/if}}
+	
+	{{#if resume.awards.length}}
+	<section id="awards" class="row">
+		<div class="col-sm-3 section-info small-header">
+		  A w a r d s
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.awards}}
+			<div class="col-sm-12 award-item">
+			  <p class="col-sm-7">
+		        <span class="award-title">{{title}}</span>
+				by
+				{{awarder}}
+			  </p>
+			  {{#if date}}
+			  <p class="col-sm-5 award-date">
+			    <span class="fa fa-clock-o"></span>
+				{{date}}
+			  </p>
+			  {{/if}}
+			  {{#if summary}}
+			  <div class="col-sm-12 award-summary">
+			    {{summary}}
+			  </div>
+			  {{/if}}
+			</div>
+		  {{/each}}
+		</div>
+		<div class="col-sm-3 section-info big-header">
+		  A w a r d s
+		</div>
+	</section>
+	{{/if}}
+	
+	{{#if resume.publications.length}}
+	<section id="publications" class="row">
+		<div class="col-sm-3 section-info">
+		  P u b l i c a t i o n s
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.publications}}
+			<div class="col-sm-12 pub-item">
+			  <p class="col-sm-7">
+		        <span class="pub-name">{{name}}</span>
+				{{#if publisher}}
+				by
+				<a href="{{website}}">{{publisher}}</a>
+				{{/if}}
+			  </p>
+			  {{#if releaseDate}}
+			  <p class="col-sm-5 pub-date">
+			    <span class="fa fa-clock-o"></span>
+				{{releaseDate}}
+			  </p>
+			  {{/if}}
+			  {{#if summary}}
+			  <div class="col-sm-12 pub-summary">
+			    {{summary}}
+			  </div>
+			  {{/if}}
+			</div>
+		  {{/each}}
+		</div>
+	</section>
+	{{/if}}
+	
+	{{#if resume.skills.length}}
+	<section id="skills" class="row">
+		<div class="col-sm-3 section-info small-header">
+		  S k i l l s
+		</div>
+		<div class="col-sm-9">
+		    <table class="table table-hover">
+			 <tr class="skills-header">
+			   <th>Skill</th>
+			   <th>Level</th>
+			   <th>Specifics</th>
+			 </tr>
+			 {{#each resume.skills}}
+			 <tr class="skills-rows">
+			   <td class="bold">{{name}}</td>
+			   <td>{{level}}</td>
+			   {{#if keywords.length}}
+			   <td>
+			     {{#each keywords}}
+				    {{#if @last}}
+					  {{.}} 
+					{{else}}
+					  {{.}}, 
+					{{/if}}
+			     {{/each}}
+			   </td>
+			   {{/if}}
+			 </tr>
+			 {{/each}}
+			</table>
+		</div>
+		<div class="col-sm-3 section-info big-header">
+		  S k i l l s
+		</div>
+	</section>
+	{{/if}}
+
+	{{#if resume.languages.length}}
+	<section id="languages" class="row">
+		<div class="col-sm-3 section-info">
+		  L a n g u a g e s
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.languages}}
+			<div class="col-sm-12 lang-item">
+		      <span class="lang-name fa fa-language"> {{language}}</span>
+			  <span class="lang-fluency fa fa-ellipsis-h">   {{fluency}}</span>
+			</div>
+		  {{/each}}
+		</div>
+	</section>
+	{{/if}}
+
+	{{#if resume.interests.length}}
+	<section id="interests" class="row">
+	  <div class="col-sm-3 section-info small-header">
+		I n t e r e s t s
+	  </div>
+	  <div class="col-sm-9">
+		  {{#each resume.interests}}
+		  <div class="interest-item">
+            <span class="interest-name">{{name}}</span>
+			{{#each keywords}}
+		    <span class="interest-keyword">
+	          {{#if @last}}
+			    {{.}} 
+			  {{else}}
+			    {{.}}, 
+			  {{/if}}
+			</span>
+			{{/each}}
+		  </div>
+		  {{/each}}
+	  </div>
+	  <div class="col-sm-3 section-info big-header">
+		  I n t e r e s t s
+	  </div>
+	</section>
+	{{/if}}
+	
+	{{#if resume.references.length}}
+	<section id="references" class="row">
+		<div class="col-sm-3 section-info">
+		  R e f e r e n c e s
+		</div>
+		<div class="col-sm-9">
+		  {{#each resume.references}}
+			<div class="ref-item">
+              <span class="fa fa-quote-left"></span>
+			  <span class="ref-text">{{reference}}</span>
+			  <span class="fa fa-quote-right"></span>
+			  <p class="ref-by"><span class="fa fa-ellipsis-h"></span>{{name}}</p>
+			</div>
+		  {{/each}}
+		</div>
+	</section>
+	{{/if}}
+	
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	</body>
+</html>
