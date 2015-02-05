@@ -8,11 +8,15 @@
 	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Oxygen:700,400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<style>
+	<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<style media="screen">
 	{{{css}}}
 	</style>
 	
+	<style media="print">
+	{{{print}}}
+	</style>
+
 	</head>
 	<body>
 	<div id="resume" class="container-fluid">
