@@ -203,6 +203,14 @@ a:hover {
   color: #B2C248;
 }
 
+#languages .lang-name {
+  color: #306754;
+}
+
+#interests .interest-name {
+  color: #6F4E37;
+}
+
 #references .ref-text {
   word-wrap: break-word;
 }

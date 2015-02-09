@@ -1,8 +1,20 @@
 # Striking theme [![](https://badge.fury.io/js/jsonresume-theme-boilerplate.png)](https://www.npmjs.org/package/jsonresume-theme-striking)
 
-This is the boilerplate theme for [JSON Resume](http://jsonresume.org/).
+This is a Striking theme for [JSON Resume](http://jsonresume.org/).
 
-## Getting started
+### View it online!
+
+You can view the theme online [here](http://themes.jsonresume.org/striking)
+
+### Print and share a hard copy
+
+Do a ```Ctrl + P``` to print the resume with all the styling intact!
+
+### Download theme
+
+Lets go ahead and download a [copy of the repository](https://github.com/poleveD/jsonresume-theme-striking/archive/master.zip).
+
+### Getting started
 
 To get started with theme development, this is what you'll need:
 
@@ -30,9 +42,6 @@ Go ahead and install it:
 sudo npm install -g resume-cli
 ```
 
-### Download theme
-
-Lets go ahead and download a [copy of the repository](https://github.com/poleveD/jsonresume-theme-striking/archive/master.zip).
 
 ### Install npm packages
 
@@ -49,7 +58,7 @@ This will read the local `package.json` and install the packages listed under `d
 While inside the theme folder, simply run:
 
 ```
-resume serve
+resume serve -t striking
 ```
 
 You should now see this message:
@@ -59,7 +68,7 @@ Preview: http://localhost:4000
 Press ctrl-c to stop
 ```
 
-### Use theme
+### Use theme to generate HTML file
 
 - Create your resume.json
 - From the command prompt, run 
